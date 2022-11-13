@@ -2,11 +2,15 @@ package Basic_Spring.demo;
 
 import Basic_Spring.demo.member.Grade;
 import Basic_Spring.demo.member.Member;
-import Basic_Spring.demo.member.MemberServiceImpl;
+import Basic_Spring.demo.member.MemberService;
 
 public class MemberApp {
     public static void main(String[] args) {
-        MemberServiceImpl memberService = new MemberServiceImpl();
+
+        AppConfig appConfig = new AppConfig();
+        MemberService memberService = appConfig.memberService();
+
+//        MemberServiceImpl memberService = new MemberServic eImpl();
         Member member = new Member(1L, "memberA", Grade.VIP);
         memberService.join(member);
 

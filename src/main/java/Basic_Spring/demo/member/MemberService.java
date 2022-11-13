@@ -1,6 +1,6 @@
 package Basic_Spring.demo.member;
 
-public interface MemberServie {
+public interface MemberService {
     void join(Member member);
 
     Member findMember(Long memberId);

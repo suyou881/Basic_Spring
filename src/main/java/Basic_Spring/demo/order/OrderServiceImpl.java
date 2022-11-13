@@ -9,7 +9,7 @@ import Basic_Spring.demo.member.MemoryMemberRepository;
 
 public class OrderServiceImpl implements OrderService {
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    //private final MemberRepository memberRepository = new MemoryMemberRepository();
     /*
     * 현재 OrderServiceImpl 은 DiscountPolicy 인터페이스 뿐만 아니라
     * FixDiscountPolicy 구현 클래스도 의존하고 있다.
@@ -22,7 +22,15 @@ public class OrderServiceImpl implements OrderService {
     * Open Close Principle ( 개방폐쇄의 원칙 )
     * */
     //private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
-    private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
+//    private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
+
+    private final MemberRepository memberRepository;
+    private final DiscountPolicy discountPolicy;
+
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
