@@ -4,7 +4,8 @@ import Basic_Spring.demo.discount.DiscountPolicy;
 import Basic_Spring.demo.member.Member;
 import Basic_Spring.demo.member.MemberRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -27,7 +28,8 @@ public class OrderServiceImpl implements OrderService {
 //    private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
 
     private final MemberRepository memberRepository;
-    private final DiscountPolicy discountPolicy;
+    @Qualifier("mainDiscountPolicy")
+    private final  DiscountPolicy discountPolicy;
 
 
     //수정자 의존관계 테스트용 코드\
