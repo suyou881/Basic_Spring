@@ -1,5 +1,6 @@
 package Basic_Spring.demo.scope;
 
+import lombok.RequiredArgsConstructor;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -24,9 +25,7 @@ public class PrototypeTest {
 
         ac.close();
 
-
     }
-
 
     @Scope("prototype")
     static class PrototypeBean {
